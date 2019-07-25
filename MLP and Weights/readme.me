@@ -1,0 +1,25 @@
+
+
+follow these instructions
+https://docs.opencv.org/3.4.3/d7/d9f/tutorial_linux_install.html
+
+- use this command insted at the end
+cmake -D CMAKE_BUILD_TYPE=Release -D OPENCV_GENERATE_PKGCONFIG=YES -D CMAKE_INSTALL_PREFIX=/usr/local ..
+
+
+open and extract everything in this repo
+https://github.com/myleott/mnist_png
+
+
+make sure the correct cmake is used, xilinx will try and use its own
+you need to run /bin/usr/cmake -D CMAKE_BUILD_TYPE=Release -D OPENCV_GENERATE_PKGCONFIG=YES -D CMAKE_INSTALL_PREFIX=/usr/local ..
+
+then make sure the opencv that is installed is in the /bin/include file
+you have to remove the opencv in the /bin/include with rm -r opencv then move the current opencv into that /bin/include/opencv
+
+run steve's theDweeb/MLP_test
+
+g++ -std=c++11 mlp.cpp mlpLib.cpp mlpLib.h -l `pkg-config --cflags --libs opencv` -o mlp
+without the -l because the l is looking for a library
+
+./mlp 2 2.png
